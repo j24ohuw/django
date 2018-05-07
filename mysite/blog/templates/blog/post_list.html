@@ -5,20 +5,17 @@
     <body>
         <div>
             <h1><a href="/">Django Blog</a></h1>
-            <p>Published on May 7th 2018</p>
+            <p>published: </p>
         </div>
 
-        <div>
-            <h2><a href="">My first post</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            <p>Published on May 7th 2018</p>
-        </div>
+        {% for post in posts %}
+          <div>
+            <h1><a href="">{{ post.title }}</a></h1>
+            <p>{{ post.text|safe|linebreaksbr }}</p>
+            <p>published: {{ post.published_date }}</p>
+          </div>
+        {% endfor %}
 
-        <div>
-            <h2><a href="">My second post</a></h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sit amet magna sed velit auctor aliquet. Curabitur sit amet rhoncus mauris, nec semper odio. Duis eu erat nec odio ullamcorper sagittis ac a neque. Etiam eu molestie ipsum, eget posuere libero. Sed ornare elit non rutrum consectetur. Nullam diam turpis, pretium quis nibh a, interdum lobortis neque. Vestibulum efficitur sit amet leo in tristique. Duis libero est, tempus in sapien sit amet, scelerisque tincidunt ipsum.</p>
-            <p>Published on May 7th 2018</p>
-        </div>
 
     </body>
 </html>
