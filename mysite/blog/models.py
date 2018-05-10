@@ -15,3 +15,15 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+class Comment(models.Model):
+    text = models.TextField()
+    created_date = models.DateTimeField(default=timezone.now)
+    post = models.ForeignKey(Post, related_name="Post")
+
+    def publish(self):
+        self.created_date = timezone.now()
+        self.save()
+
+    def __str__(self):
+        return self.text[:20]
